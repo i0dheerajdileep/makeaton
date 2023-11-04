@@ -1,9 +1,10 @@
 import React from 'react'
+import Landing from './pages/Landing'
 
 function App() {
   return (
-    <div>
-      dementia project
+    <div className='bg-black'>
+      <Landing/>
     </div>
   )
 }
