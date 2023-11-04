@@ -8,10 +8,12 @@ import {
   } from '@heroicons/react/24/outline'
   
   const navigation = [
-    { name: 'Profile', href: '/dashboard', icon: HomeIcon, count: '5', current: true },
-    { name: 'Assessments', href: 'dashboard/assesment', icon: CalendarIcon, count: '20+', current: false },
+    { name: 'Profile', href: '/dashboard', icon: HomeIcon, count: '', current: true },
+    // { name: 'Team', href: '#', icon: UsersIcon, current: false },
+    { name: 'Assessments', href: 'dashboard/assesment', icon: CalendarIcon, count: '', current: false },
     { name: 'Task', href: 'dashboard/tasks', icon: DocumentDuplicateIcon, current: false },
-    { name: 'Report', href: 'dashboard/report', icon: FolderIcon, count: '12', current: false },
+    { name: 'Report', href: 'dashboard/report', icon: FolderIcon, count: '', current: false },
+    // { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
   ]
  
   
