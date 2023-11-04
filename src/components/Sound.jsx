@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const assessmentWords = ['makeaton', 'clusterdev', 'mlh', 'github']; // Add more words as needed
 
-function Sound() {
+function Sound({onComplete,setScore}) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
   const [userScore, setUserScore] = useState(0);
   const [userAnswer, setUserAnswer] = useState('');
@@ -22,9 +22,10 @@ function Sound() {
       setUserAnswer(''); // Clear the user's answer for the next word
     } else {
       // End of assessment, you can navigate to another page or show a summary
-      alert(`Assessment completed! Your score: ${userScore + 1}/${assessmentWords.length}`);
-      setCurrentWordIndex(0); // Reset the index for a new assessment
-      setUserScore(0); // Reset the score for a new assessment
+      console.log("sound",userScore)
+      setScore((prev)=>prev+userScore)
+        onComplete();
+
     }
   };
 

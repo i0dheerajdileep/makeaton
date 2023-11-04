@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 
 const wordPairs = [
   { word1: 'cat', word2: 'cot', answer: false },
-  { word1: 'dad', word2: 'dude', answer: true },
+  { word1: 'dad', word2: 'dad', answer: true },
   { word1: 'bat', word2: 'bet', answer: false },
 ];
 
-function Compare() {
+function Compare({onComplete,setScore}) {
   const [currentPairIndex, setCurrentPairIndex] = useState(0);
   const [userScore, setUserScore] = useState(0);
   const [userAnswer, setUserAnswer] = useState(null);
@@ -24,8 +24,11 @@ function Compare() {
       setCurrentPairIndex(currentPairIndex + 1);
       setUserAnswer(null);
     } else {
+        console.log("wordcompare",userScore)
       // End of the comparison, show the score in an alert
-      alert(`Comparison completed! Your score: ${userScore + (userAnswer === currentPair.answer ? 1 : 0)}/${wordPairs.length}`);
+      setScore((prev)=>prev+userScore)
+      onComplete();
+    //   alert(`Comparison completed! Your score: ${userScore + (userAnswer === currentPair.answer ? 1 : 0)}/${wordPairs.length}`);
     }
   };
 

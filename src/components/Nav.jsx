@@ -72,13 +72,13 @@ export default function Nav() {
         }
 
       await addDoc(usersCollectionRef, {
-        name: name,
+        name: auth.currentUser.displayName,
         email: auth.currentUser.email,
         userId: auth.currentUser.uid,
         quiz:false,
       });
     //   getuserList();
-      navigate("/dashboard/profile")
+      navigate("/dashboard")
     } catch (err) {
       console.error(err);
     }
