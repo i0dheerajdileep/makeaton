@@ -9,8 +9,7 @@ function App() {
     <div>
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/dashboard' element={<Sidebar/>}>
-          <Route path='/dashboard/profile' element={<Profile/>}/>
+        <Route path='/dashboard' element={<Profile/>}>
         </Route>
       </Routes>
     </div>
