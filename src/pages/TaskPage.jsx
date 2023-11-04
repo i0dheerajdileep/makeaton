@@ -1,29 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import GameComponent from '../components/gamecomponent';
 import Sidebar from '../components/Sidebar';
+import {
+  getDocs,
+  collection,
+} from "firebase/firestore";
+import { db } from '../firebase/config'
+// import { useEffect, useState } from "react";
+import { getAuth } from "firebase/auth"
+import { app } from '../firebase/config';
 
 import { highDyslexiaGames, medDyslexiaGames, lowDyslexiaGames } from '../data/data';
 // Import other necessary dependencies
 
 const TaskPage = () => {
-  // Assume dyslexiaLevel is a variable representing the user's dyslexia level score
-  const dyslexiaLevel = 80; // Example score, replace with your logic to get the actual score
-
   const [gameLinks, setGameLinks] = useState([]);
+  const [userList, setuserList] = useState([]);
+  const usersCollectionRef = collection(db, "users");
+  const auth = getAuth(app);
+  // const dys
+  let dyslexiaLevel;
+
+
+  const getuserList = async () => {
+    try {
+      const data = await getDocs(usersCollectionRef);
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      })).filter((doc) => doc.userId === auth.currentUser.uid);
+      setuserList(filteredData);
+      console.log(userList)
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
+    getuserList();
+  }, []);
+  
+  
+  useEffect(() => {
+    // const dyslexiaLevel = userList[0].score
+    console.log("dislexiaaaaaaaaaa",userList)
+    if(userList[0]){
+      dyslexiaLevel = userList[0].score
+  
     let links = [];
-
-    if (dyslexiaLevel >= 90) {
+    if (dyslexiaLevel >= 9) {
       links = highDyslexiaGames;
-    } else if (dyslexiaLevel >= 70) {
+    } else if (dyslexiaLevel >= 7) {
       links = medDyslexiaGames;
     } else {
       links = lowDyslexiaGames;
     }
-
+    
     setGameLinks(links);
-  }, [dyslexiaLevel]);
+  }
+  }, [dyslexiaLevel,userList]);
 
   return (
     <div className="flex w-screen h-screen">
