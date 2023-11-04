@@ -8,18 +8,14 @@ import {
   } from '@heroicons/react/24/outline'
   
   const navigation = [
-    { name: 'Profile', href: '#', icon: HomeIcon, count: '5', current: true },
+    { name: 'Profile', href: '/dashboard', icon: HomeIcon, count: '5', current: true },
     // { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Report', href: '#', icon: FolderIcon, count: '12', current: false },
-    { name: 'Assessments', href: '#', icon: CalendarIcon, count: '20+', current: false },
-    { name: 'Task', href: '#', icon: DocumentDuplicateIcon, current: false },
+    { name: 'Assessments', href: 'dashboard/assesment', icon: CalendarIcon, count: '20+', current: false },
+    { name: 'Task', href: 'dashboard/tasks', icon: DocumentDuplicateIcon, current: false },
+    { name: 'Report', href: 'dashboard/report', icon: FolderIcon, count: '12', current: false },
     // { name: 'Reports', href: '#', icon: ChartPieIcon, current: false },
   ]
-  const teams = [
-    { id: 1, name: 'Heroicons', href: '#', initial: 'H', current: false },
-    { id: 2, name: 'Tailwind Labs', href: '#', initial: 'T', current: false },
-    { id: 3, name: 'Workcation', href: '#', initial: 'W', current: false },
-  ]
+ 
   
   function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
@@ -29,11 +25,6 @@ import {
     return (
       <div className="flex h-screen flex-col gap-y-5 overflow-y-auto bg-gray-900 w-64 px-6">
         <div className="flex h-16 shrink-0 items-center">
-          <img
-            className="h-8 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-            alt="Your Company"
-          />
         </div>
         <nav className="flex flex-1 flex-col">
           <ul role="list" className="flex flex-1 flex-col gap-y-7">

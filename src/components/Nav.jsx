@@ -1,6 +1,19 @@
 import { useState } from 'react'
 import { Dialog } from '@headlessui/react'
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
+import {app} from '../firebase/config'
+// import { googleProvider } from '../firebase/config'
+import google from '../assets/google.png'
+import {
+    getDocs,
+    collection,
+    addDoc,
+    query,
+    where,
+  } from "firebase/firestore";
+  import { db } from "../firebase/config";
+import { useNavigate } from 'react-router-dom';
 
 const navigation = [
   { name: 'Home', href: '#' },
@@ -10,7 +23,66 @@ const navigation = [
 ]
 
 export default function Nav() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+   
+    const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+    const [name, setName] = useState("");
+    const usersCollectionRef = collection(db, "users");
+    const auth = getAuth(app);
+    const navigate = useNavigate();
+
+
+
+
+  const handleSignin =()=>{
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        setName(auth.currentUser.displayName)
+        // console.log(name)
+        const credential = GoogleAuthProvider.credentialFromResult(result);
+        const token = credential.accessToken;
+        const user = result.user;
+        onSubmituser()
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        const credential = GoogleAuthProvider.credentialFromError(error);
+        console.log(errorMessage);
+      });
+  }
+
+  const onSubmituser = async () => {
+    try {
+
+        const userEmail = auth.currentUser.email;
+
+        // Check if a user with the provided email already exists
+        const querySnapshot = await getDocs(
+          query(usersCollectionRef, where("email", "==", userEmail))
+
+        );
+    
+        if (!querySnapshot.empty) {
+          // User with the provided email already exists
+          // You can handle this case (e.g., show an error message)
+          console.log("User already exists");
+          navigate("/dashboard/profile")
+          return;
+        }
+
+      await addDoc(usersCollectionRef, {
+        name: name,
+        email: auth.currentUser.email,
+        userId: auth.currentUser.uid,
+        quiz:false,
+      });
+    //   getuserList();
+      navigate("/dashboard/profile")
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   return (
     <header className="bg-white">
@@ -39,9 +111,9 @@ export default function Nav() {
           ))}
         </div>
         <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-          <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-            Log in <span aria-hidden="true">&rarr;</span>
-          </a>
+          {/* <a href className="text-sm font-semibold leading-6 text-gray-900"> */}
+            <img src={google} className='w-44 cursor-pointer' onClick={handleSignin}/> 
+          {/* </a> */}
         </div>
       </nav>
       <Dialog as="div" className="lg:hidden" open={mobileMenuOpen} onClose={setMobileMenuOpen}>
@@ -83,7 +155,7 @@ export default function Nav() {
                   href="#"
                   className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
-                  Log in
+                
                 </a>
               </div>
             </div>
