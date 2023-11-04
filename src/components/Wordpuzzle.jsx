@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 
-const assessmentWords = ['Elephant', 'Apple', 'Programming', 'Ocean']; // Add more words as needed
+const assessmentWords = ['makeaton', 'clusterdev', 'mlh', 'github']; // Add more words as needed
 
 function Wordpuzzle() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -23,7 +23,7 @@ function Wordpuzzle() {
       // End of assessment, you can navigate to another page or show a summary
       alert(`Assessment completed! Your score: ${userScore}/${assessmentWords.length}`);
     }
-  };
+  }
 
   return (
     <div className='flex justify-start items-center pt-36 w-full text-4xl font-bold flex-col ml-40'>
