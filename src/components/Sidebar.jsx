@@ -1,4 +1,3 @@
-// CombinedSidebar.js
 
 import React from 'react';
 import { CalendarIcon, DocumentDuplicateIcon, FolderIcon, HomeIcon } from '@heroicons/react/24/outline';
