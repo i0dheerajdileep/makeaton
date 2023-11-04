@@ -49,11 +49,11 @@ const TaskPage = () => {
   
     let links = [];
     if (dyslexiaLevel >= 9) {
-      links = highDyslexiaGames;
+      links = lowDyslexiaGames;
     } else if (dyslexiaLevel >= 7) {
       links = medDyslexiaGames;
     } else {
-      links = lowDyslexiaGames;
+      links = highDyslexiaGames;
     }
     
     setGameLinks(links);
