@@ -8,7 +8,7 @@ const GameComponent = ({ githubLink }) => {
         title="Embedded Game"
         className="w-96 h-96 border-2 border-gray-300 rounded-lg" // Adjust width and height as needed
         src={githubLink}
-        frameBorder="0"
+        // frameBorder="0"
         allowFullScreen
       ></iframe>
     </div>
