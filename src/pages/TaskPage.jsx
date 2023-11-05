@@ -1,39 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import GameComponent from '../components/gamecomponent';
+import React, { useState } from 'react';
+import Todolist from '../components/TodoList';
 import Sidebar from '../components/Sidebar';
-import {
-  getDocs,
-  collection,
-} from "firebase/firestore";
-import { db } from '../firebase/config'
-// import { useEffect, useState } from "react";
-import { getAuth } from "firebase/auth"
-import { app } from '../firebase/config';
-
-import { highDyslexiaGames, medDyslexiaGames, lowDyslexiaGames } from '../data/data';
-// Import other necessary dependencies
 
 const TaskPage = () => {
-  const [gameLinks, setGameLinks] = useState([]);
-  const [userList, setuserList] = useState([]);
-  const usersCollectionRef = collection(db, "users");
-  const auth = getAuth(app);
-  // const dys
-  let dyslexiaLevel;
-
-
-  const getuserList = async () => {
-    try {
-      const data = await getDocs(usersCollectionRef);
-      const filteredData = data.docs.map((doc) => ({
-        ...doc.data(),
-        id: doc.id,
-      })).filter((doc) => doc.userId === auth.currentUser.uid);
-      setuserList(filteredData);
-      console.log(userList)
-    } catch (err) {
-      console.error(err);
-    }
+  // Assume you have task data to pass to the DyslexiaTask component
+  const taskData = {
+    question: 'Sample question?',
+    options: ['Option A', 'Option B', 'Option C'],
   };
 
   useEffect(() => {
@@ -49,11 +22,11 @@ const TaskPage = () => {
   
     let links = [];
     if (dyslexiaLevel >= 9) {
-      links = highDyslexiaGames;
+      links = lowDyslexiaGames;
     } else if (dyslexiaLevel >= 7) {
       links = medDyslexiaGames;
     } else {
-      links = lowDyslexiaGames;
+      links = highDyslexiaGames;
     }
     
     setGameLinks(links);
@@ -61,15 +34,14 @@ const TaskPage = () => {
   }, [dyslexiaLevel,userList]);
 
   return (
-    <div className="flex w-screen h-screen">
+    <div className='flex flex-row'>
       <Sidebar />
-      <div className="flex justify-between items-center w-full p-24 h-full">
-        <div className="flex flex-row w-full h-screen">
-          {gameLinks.map((link, index) => (
-            <GameComponent key={index} githubLink={link} />
-          ))}
-        </div>
-      </div>
+    <div className="text-center">
+      <h1 className="text-2xl font-bold mb-4">Task Page</h1>
+
+      {/* Render the DyslexiaTask component with the taskData */}
+      <Todolist taskData={taskData} />
+    </div>
     </div>
   );
 };

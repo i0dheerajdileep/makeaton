@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { CalendarIcon, DocumentDuplicateIcon, FolderIcon, HomeIcon } from '@heroicons/react/24/outline';
+import { CalendarIcon, PencilSquareIcon, HomeIcon, PuzzlePieceIcon } from '@heroicons/react/24/outline';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
@@ -31,9 +31,9 @@ const Sidebar = () => {
   const navigation = [
     { name: 'Profile', href: '/dashboard', icon: HomeIcon, count: '', current: true },
     // { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Assessments', href: 'dashboard/assesment', icon: CalendarIcon, count: '', current: false },
-    { name: 'Task', href: 'dashboard/tasks', icon: DocumentDuplicateIcon, current: false },
-    { name: 'Report', href: 'dashboard/report', icon: FolderIcon, count: '12', current: false },
+    { name: 'Assessments', href: 'assesment', icon: CalendarIcon, count: '', current: false },
+    { name: 'Task', href: 'tasks', icon: PencilSquareIcon, current: false },
+    { name: 'Training Games', href: '/traininggames', icon: PuzzlePieceIcon, count: '', current: false },
   ];
 
   return (
