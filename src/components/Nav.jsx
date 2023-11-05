@@ -67,7 +67,7 @@ export default function Nav() {
           // User with the provided email already exists
           // You can handle this case (e.g., show an error message)
           console.log("User already exists");
-          navigate("/dashboard")
+          navigate("/dashboard/profile")
           return;
         }
 
@@ -78,7 +78,7 @@ export default function Nav() {
         quiz:false,
       });
     //   getuserList();
-      navigate("/dashboard")
+      navigate("/dashboard/profile")
     } catch (err) {
       console.error(err);
     }

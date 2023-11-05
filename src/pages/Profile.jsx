@@ -6,9 +6,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 function Profile() {
   return (
-    <div className=' w-full h-auto flex flex-row '>
-    <Sidebar className='fixed '/>
-  <main class="profile-page overflow-scroll w-full  mr-auto">
+  <div className=' w-full h-auto flex flex-row '>
+    <Sidebar className='fixed'/>
+  <main class="profile-page w-full  mr-auto " >
   <section class="relative top-0 bg-blueGray-200 pt-32">
     <div class="container mx-auto px-4">
       <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg  ">
@@ -25,8 +25,8 @@ function Profile() {
            
           </div>
           <div class="text-center mt-12">
-            <h3 class="text-4xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-              Jenna Stones
+            <h3 class="text-4xl font-semibold leading-normal  text-blueGray-700 mb-2">
+              Dheeraj dileep
             </h3>
             <div class="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
               <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
@@ -41,17 +41,23 @@ function Profile() {
     </div>
   
   </section>
-  <div style={{ width: 200, height: 200 }} className='flex justify-center items-center ml-[35rem] pt-20'>
-  <CircularProgressbarWithChildren value={20} strokeWidth={2} >
+  <div className='flex justify-center items-center flex-row gap-[20rem]'>
+    <div className='flex justify-center items-center w-26'>
+      <h1 className='text-3xl font-bold text-indigo-600'>Way more to go chief</h1>
+    </div>
+
+  <div style={{ width: 300, height: 300 }} className='flex justify-center items-center  pt-20'>
+  <CircularProgressbarWithChildren value={20} strokeWidth={8} >
  {/* <div className='flex justify-center items-center'> */}
  
   <div style={{ fontSize: 20, marginTop: -5  }} >
     <span className='flex justify-center items-center'> <strong> 66% </strong> </span> 
-    <strong> progress </strong>
+    <strong>Daily progress </strong>
   </div>
   {/* </div> */}
 </CircularProgressbarWithChildren>
 
+  </div>
   </div>
 </main>
 
