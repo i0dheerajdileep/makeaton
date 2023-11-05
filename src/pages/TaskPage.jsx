@@ -9,6 +9,30 @@ const TaskPage = () => {
     options: ['Option A', 'Option B', 'Option C'],
   };
 
+  useEffect(() => {
+    getuserList();
+  }, []);
+  
+  
+  useEffect(() => {
+    // const dyslexiaLevel = userList[0].score
+    console.log("dislexiaaaaaaaaaa",userList)
+    if(userList[0]){
+      dyslexiaLevel = userList[0].score
+  
+    let links = [];
+    if (dyslexiaLevel >= 9) {
+      links = lowDyslexiaGames;
+    } else if (dyslexiaLevel >= 7) {
+      links = medDyslexiaGames;
+    } else {
+      links = highDyslexiaGames;
+    }
+    
+    setGameLinks(links);
+  }
+  }, [dyslexiaLevel,userList]);
+
   return (
     <div className='flex flex-row'>
       <Sidebar />

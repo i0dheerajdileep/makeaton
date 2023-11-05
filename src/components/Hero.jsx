@@ -6,12 +6,11 @@ export default function Hero() {
     <div className="relative isolate overflow-hidden bg-white">
       <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-2">
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Deploy to the cloud with confidence
+          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 ">
+          Unlock Learning Adventures: Where Education Meets Excitement!
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
-            fugiat veniam occaecat fugiat aliqua.
+          dedicated to revolutionizing education for individuals with dyslexia. Our platform provides a curated collection of educational games tailored to support diverse learning needs. We aim to create an inclusive space where dyslexic learners can engage, excel, and enjoy the journey of education
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
