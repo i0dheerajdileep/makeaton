@@ -32,12 +32,8 @@ function Profile() {
               <i class="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>
               PROFILE
             </div>
-            <div class="mb-2 text-blueGray-600 mt-10">
-              <i class="fas fa-briefcase mr-2 text-lg text-blueGray-400"></i>Solution Manager - Creative Tim Officer
-            </div>
-            <div class="mb-2 text-blueGray-600">
-              <i class="fas fa-university mr-2 text-lg text-blueGray-400"></i>University of Computer Science
-            </div>
+            
+      
           </div>
          
         </div>
