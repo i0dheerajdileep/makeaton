@@ -53,7 +53,7 @@ function Profile() {
             <CircularProgressbarWithChildren value={isCompleteProfile ? 100 : 0} strokeWidth={8}>
               <div style={{ fontSize: 20, marginTop: -5 }}>
                 <span className='flex justify-center items-center'>
-                  <strong>{isCompleteProfile ? 100 : 66}%</strong>
+                  <strong>{isCompleteProfile ? 100 : 0}%</strong>
                 </span>
                 <strong>Daily progress</strong>
               </div>
