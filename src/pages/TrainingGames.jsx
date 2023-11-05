@@ -48,12 +48,12 @@ const TrainingGames = () => {
       dyslexiaLevel = userList[0].score
   
     let links = [];
-    if (dyslexiaLevel >= 9) {
-      links = highDyslexiaGames;
+    if (dyslexiaLevel >= 8 && dyslexiaLevel <=9) {
+      links = lowDyslexiaGames;
     } else if (dyslexiaLevel >= 7) {
       links = medDyslexiaGames;
     } else {
-      links = lowDyslexiaGames;
+      links = highDyslexiaGames;
     }
     
     setGameLinks(links);
