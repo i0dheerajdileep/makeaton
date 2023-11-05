@@ -1,16 +1,16 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { CalendarIcon, PencilSquareIcon, HomeIcon, PuzzlePieceIcon } from '@heroicons/react/24/outline';
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ');
 }
 
-const SidebarItem = ({ href, icon: Icon, name, count, current }) => (
+const SidebarItem = ({ href, icon: Icon, name, count, current, onClick }) => (
   <a
     href={href}
+    onClick={onClick}
     className={classNames(
-      current ? 'bg-gray-800 text-white' : 'text-gray-400 hover:text-white hover:bg-gray-800',
+      current ? ' text-gray-400 hover:text-white hover:bg-gray-800' : 'text-gray-400 hover:text-white hover:bg-gray-800',
       'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-semibold'
     )}
   >
@@ -28,12 +28,17 @@ const SidebarItem = ({ href, icon: Icon, name, count, current }) => (
 );
 
 const Sidebar = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleItemClick = (index) => {
+    setActiveIndex(index);
+  };
+
   const navigation = [
-    { name: 'Profile', href: '/dashboard', icon: HomeIcon, count: '', current: true },
-    // { name: 'Team', href: '#', icon: UsersIcon, current: false },
-    { name: 'Assessments', href: 'assesment', icon: CalendarIcon, count: '', current: false },
-    { name: 'Task', href: 'tasks', icon: PencilSquareIcon, current: false },
-    { name: 'Training Games', href: '/traininggames', icon: PuzzlePieceIcon, count: '', current: false },
+    { name: 'Profile', href: '/dashboard/profile', icon: HomeIcon, count: '', current: activeIndex === 0 },
+    { name: 'Assessments', href: '/dashboard/assessment', icon: CalendarIcon, count: '', current: activeIndex === 1 },
+    { name: 'Task', href: '/dashboard/tasks', icon: PencilSquareIcon, current: activeIndex === 2 },
+    { name: 'Training Games', href: '/dashboard/traininggames', icon: PuzzlePieceIcon, count: '', current: activeIndex === 3 },
   ];
 
   return (
@@ -43,26 +48,12 @@ const Sidebar = () => {
         <ul role="list" className="flex flex-1 flex-col gap-y-7">
           <li>
             <ul role="list" className="-mx-2 space-y-1">
-              {navigation.map((item) => (
+              {navigation.map((item, index) => (
                 <li key={item.name}>
-                  <SidebarItem {...item} />
+                  <SidebarItem {...item} index={index} activeIndex={activeIndex} onClick={() => handleItemClick(index)} />
                 </li>
               ))}
             </ul>
-          </li>
-          <li className="-mx-6 mt-auto">
-            <a
-              href="#"
-              className="flex items-center gap-x-4 px-6 py-3 text-sm font-semibold leading-6 text-white hover:bg-gray-800"
-            >
-              <img
-                className="h-8 w-8 rounded-full bg-gray-800"
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                alt=""
-              />
-              <span className="sr-only">Your profile</span>
-              <span aria-hidden="true">Tom Cook</span>
-            </a>
           </li>
         </ul>
       </nav>

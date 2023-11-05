@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const DyslexiaTodoList = () => {
+const DyslexiaTodoList = ({dis}) => {
   const [tasks, setTasks] = useState([
     { id: 1, question: 'Read a short paragraph and summarize it.' },
     { id: 2, question: 'Solve a mathematical problem.' },
@@ -8,6 +8,7 @@ const DyslexiaTodoList = () => {
     { id: 4, question: 'Write a short story using specific words.' },
     { id: 5, question: 'Listen to a word and spell it.' },
   ]);
+  const [isButtonActive, setIsButtonActive] = useState(false);
 
   const handleTaskCompletion = (taskId) => {
     setTasks((prevTasks) =>
@@ -17,14 +18,22 @@ const DyslexiaTodoList = () => {
     );
   };
 
+  useEffect(() => {
+    // Check if all tasks are completed
+    const allTasksCompleted = tasks.every((task) => task.completed);
+
+    // Update isButtonActive based on the completion status
+    setIsButtonActive(!allTasksCompleted);
+  }, [tasks]); // Run the effect when the tasks state changes
+
   const handleSubmit = () => {
     // Add your submission logic here
-    console.log("Tasks submitted!");
+    console.log('Tasks submitted!');
   };
 
   return (
     <div className="max-w-full mx-auto mt-8 p-8 border rounded-md bg-gray-100 shadow-md">
-      <h2 className="text-2xl font-semibold mb-4 text-indigo-600">Dyslexia Todo List</h2>
+      <h2 className="text-2xl font-semibold mb-4 text-indigo-600">Todo List Day 1</h2>
 
       <ul className="list-disc pl-6">
         {tasks.map((task) => (
@@ -43,8 +52,11 @@ const DyslexiaTodoList = () => {
       </ul>
 
       <button
-        className="mt-4 p-2 bg-indigo-600 text-white rounded-md"
+        className={`mt-4 p-2 bg-indigo-600 text-white rounded-md ${
+          !isButtonActive ? '' : 'bg-gray-400 cursor-not-allowed'
+        }`}
         onClick={handleSubmit}
+        disabled={isButtonActive}
       >
         Submit Tasks
       </button>
