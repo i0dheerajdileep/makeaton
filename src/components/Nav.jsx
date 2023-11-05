@@ -89,7 +89,7 @@ export default function Nav() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8" aria-label="Global">
         <div className="flex lg:flex-1">
         <div class="w-56 h-14 flex-shrink-0 text-blue-700 font-inter text-2xl font-normal pt-2">
-  NeuroQue
+  NeuriQue
 </div>
 
         </div>
