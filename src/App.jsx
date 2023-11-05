@@ -8,11 +8,15 @@ import TaskPage from './pages/TaskPage'
 import TrainingGames from './pages/TrainingGames'
 
 function App() {
+
+  const tru = true;
+
   return (
     <div>
       <Routes>
         <Route path='/' element={<Landing/>}/>
         <Route path='/dashboard/profile' element={<Profile/>}/>
+        <Route path='/dashboard/profile/true' element={<Profile/>}/>
         <Route path='/dashboard/assessment' element={<Assesment/>}/>
         <Route path='/dashboard/tasks' element={<TaskPage/>}/>
         <Route path='/dashboard/traininggames' element={<TrainingGames/>}/>

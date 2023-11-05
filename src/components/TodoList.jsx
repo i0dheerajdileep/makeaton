@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const DyslexiaTodoList = ({dis}) => {
   const [tasks, setTasks] = useState([
-    { id: 1, question: 'Read a short paragraph and summarize it.' },
+    { id: 1, question: 'Go to training games , we have a task for you ' },
     { id: 2, question: 'Solve a mathematical problem.' },
     { id: 3, question: 'Identify the misspelled words in a sentence.' },
     { id: 4, question: 'Write a short story using specific words.' },
     { id: 5, question: 'Listen to a word and spell it.' },
   ]);
   const [isButtonActive, setIsButtonActive] = useState(false);
+  const navigate = useNavigate()
 
   const handleTaskCompletion = (taskId) => {
     setTasks((prevTasks) =>
@@ -29,6 +31,7 @@ const DyslexiaTodoList = ({dis}) => {
   const handleSubmit = () => {
     // Add your submission logic here
     console.log('Tasks submitted!');
+    navigate(`/dashboard/profile/${true}`)
   };
 
   return (
@@ -52,8 +55,8 @@ const DyslexiaTodoList = ({dis}) => {
       </ul>
 
       <button
-        className={`mt-4 p-2 bg-indigo-600 text-white rounded-md ${
-          !isButtonActive ? '' : 'bg-gray-400 cursor-not-allowed'
+        className={`mt-4 p-2  text-white rounded-md ${
+          !isButtonActive ? 'bg-indigo-600' : 'bg-gray-400 cursor-not-allowed'
         }`}
         onClick={handleSubmit}
         disabled={isButtonActive}

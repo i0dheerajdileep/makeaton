@@ -37,7 +37,8 @@ function Compare({onComplete,setScore}) {
       <h1 className='text-3xl font-bold text-emerald-700 my-6'>
         Are these both words the same?
       </h1>
-      <div className='bg-white shadow-lg p-8 rounded-md w-96'>
+      <div className='bg-white shadow-lg p-8 rounded-md w-96 flex flex-col justify-center items-center'>
+        <span className='text-md font-semibold'>Question {currentPairIndex+1}</span>
         <div className='flex justify-center flex-row gap-4 text-2xl font-bold mb-6'>
           <div className='border-b border-indigo-500'>{currentPair.word1}</div>
           <div className='border-b border-indigo-500'>{currentPair.word2}</div>

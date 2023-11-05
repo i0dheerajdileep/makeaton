@@ -5,12 +5,14 @@ import Compare from '../components/Compare';
 import Sound from '../components/Sound';
 import { db, auth } from '../firebase/config';
 import { setDoc, collection, getDocs,doc, updateDoc } from "firebase/firestore";
+import {  useNavigate } from 'react-router-dom';
 
 function Assessment() {
   const [currentStep, setCurrentStep] = useState('wordpuzzle');
   const [score, setScore] = useState(0);
   const [userList, setuserList] = useState([]);
   const usersCollectionRef = collection(db, "users");
+  const navigate = useNavigate();
 
   const handleWordpuzzleComplete = () => {
     setCurrentStep('compare');
@@ -56,11 +58,13 @@ function Assessment() {
         }
 
     yourAsyncFunction();
+    
   }, [userList]);
     
   useEffect(() => {
     if (currentStep === 'alldone') {
       updateScore();
+      navigate('/dashboard/tasks')
     }
   }, [currentStep]);
 

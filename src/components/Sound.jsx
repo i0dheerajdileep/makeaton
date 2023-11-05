@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const assessmentWords = ['makeaton', 'clusterdev', 'mlh', 'github']; // Add more words as needed
+const assessmentWords = ['programming', 'hackathon', 'topic', 'swimming pool']; // Add more words as needed
 
 function Sound({onComplete,setScore}) {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -42,6 +42,7 @@ function Sound({onComplete,setScore}) {
       <div>
         <h1 className='text-indigo-600 '>Write the heard word in the input box</h1>
         <div className='bg-slate-200 h-full flex flex-col justify-start items-center gap-y-10 p-10 mt-10 rounded-2xl'>
+          <span>Question {currentWordIndex+1}</span>
           <div className='flex flex-col justify-center items-center gap-y-10'>
             <button onClick={playAudio} className={`text-sm bg-indigo-600 text-white rounded-xl w-36 p-5 ${isPlaying ? 'opacity-50 cursor-not-allowed' : ''}`} disabled={isPlaying}>
               {isPlaying ? 'Playing...' : 'Play Audio'}

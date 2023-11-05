@@ -36,6 +36,7 @@ function Wordpuzzle({onComplete,setScore}) {
       <div>
         <h1 className='text-indigo-600 '> Write the given word in the input box </h1>
         <div className='bg-slate-200 h-full flex flex-col justify-start items-center gap-y-10 p-10 mt-10 rounded-2xl'>
+          <span className='text-lg'>Question {currentWordIndex+1} </span>
           <h1 className="text-2xl uppercase tracking-wide font-semibold text-center bg-gray-200 py-2 px-4 rounded  text-stroke">
             {currentWord}
           </h1>

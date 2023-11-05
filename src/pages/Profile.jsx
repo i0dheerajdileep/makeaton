@@ -5,6 +5,9 @@ import 'react-circular-progressbar/dist/styles.css';
 
 
 function Profile() {
+
+  const isCompleteProfile = location.pathname.endsWith('/true');
+
   return (
   <div className=' w-full h-auto flex flex-row '>
     <Sidebar className='fixed'/>
@@ -43,22 +46,20 @@ function Profile() {
   </section>
   <div className='flex justify-center items-center flex-row gap-[20rem]'>
     <div className='flex justify-center items-center w-26'>
-      <h1 className='text-3xl font-bold text-indigo-600'>Way more to go chief</h1>
+      <h1 className='text-3xl font-bold text-indigo-600'>{isCompleteProfile ? `Congratulations ! ` : 'Way more to go chief'}</h1>
     </div>
 
-  <div style={{ width: 300, height: 300 }} className='flex justify-center items-center  pt-20'>
-  <CircularProgressbarWithChildren value={20} strokeWidth={8} >
- {/* <div className='flex justify-center items-center'> */}
- 
-  <div style={{ fontSize: 20, marginTop: -5  }} >
-    <span className='flex justify-center items-center'> <strong> 66% </strong> </span> 
-    <strong>Daily progress </strong>
-  </div>
-  {/* </div> */}
-</CircularProgressbarWithChildren>
-
-  </div>
-  </div>
+    <div style={{ width: 300, height: 300 }} className='flex justify-center items-center  pt-20'>
+            <CircularProgressbarWithChildren value={isCompleteProfile ? 100 : 0} strokeWidth={8}>
+              <div style={{ fontSize: 20, marginTop: -5 }}>
+                <span className='flex justify-center items-center'>
+                  <strong>{isCompleteProfile ? 100 : 66}%</strong>
+                </span>
+                <strong>Daily progress</strong>
+              </div>
+            </CircularProgressbarWithChildren>
+          </div>
+    </div>
 </main>
 
     </div>
