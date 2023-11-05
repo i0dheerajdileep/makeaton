@@ -13,7 +13,6 @@ export const medDyslexiaGames = [
 
 // lowDyslexia.json
 export const lowDyslexiaGames = [
-    'https://lowdyslexiagame1.com',
-    'https://lowdyslexiagame2.com',
+    'http://ozluy.github.io/projects/react-hangman',,
     // Add more low dyslexia game links as needed
 ];

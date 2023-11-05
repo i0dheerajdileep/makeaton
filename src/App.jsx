@@ -5,15 +5,17 @@ import Sidebar from './components/Sidebar'
 import Profile from './pages/Profile'
 import Assesment from './pages/Assesment'
 import TaskPage from './pages/TaskPage'
+import TrainingGames from './pages/TrainingGames'
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path='/' element={<Landing/>}/>
-        <Route path='/dashboard' element={<Profile/>}/>
+        <Route path='/dashboard/profile' element={<Profile/>}/>
         <Route path='/dashboard/assesment' element={<Assesment/>}/>
         <Route path='/dashboard/tasks' element={<TaskPage/>}/>
+        <Route path='/dashboard/traininggames' element={<TrainingGames/>}/>
       </Routes>
     </div>
   )
