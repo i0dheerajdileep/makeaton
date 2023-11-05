@@ -4,13 +4,15 @@ import dem from '../assets/dem.png'
 export default function Hero() {
   return (
     <div className="relative isolate overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-40">
+      <div className="mx-auto max-w-7xl px-6 pb-24 pt-10 sm:pb-32 lg:flex lg:px-8 lg:py-10">
         <div className="mx-auto max-w-2xl lg:mx-0 lg:max-w-xl lg:flex-shrink-0 lg:pt-2">
-          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 ">
-          Unlock Learning Adventures: Where Education Meets Excitement!
+          <h1 className="mt-10 text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
+         <div>Dysle<span class=" text-blue-700">X</span>ia <br /></div> 
+         <div className="text-lg leading-10 mt-2">Unleashing Learning Potential</div>
+           
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-          dedicated to revolutionizing education for individuals with dyslexia. Our platform provides a curated collection of educational games tailored to support diverse learning needs. We aim to create an inclusive space where dyslexic learners can engage, excel, and enjoy the journey of education
+          Dyslexia is not a barrier, but a unique way of thinking. Join us. We offer tools and exercises tailored to enhance reading and cognitive skills. Our community is dedicated to empowering dyslexic individuals. Together, we redefine possibilities.
           </p>
           <div className="mt-10 flex items-center gap-x-6">
             <a
