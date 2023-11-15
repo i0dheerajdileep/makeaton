@@ -18,7 +18,7 @@ const TrainingGames = () => {
   const [userList, setuserList] = useState([]);
   const usersCollectionRef = collection(db, "users");
   const auth = getAuth(app);
-  // const dys
+  // const dysl
   let dyslexiaLevel;
 
 
