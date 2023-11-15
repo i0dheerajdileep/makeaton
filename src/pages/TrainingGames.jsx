@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import GameComponent from '../components/gamecomponent';
+import GameComponent from '../components/GameComponent';
 import Sidebar from '../components/Sidebar';
 import {
   getDocs,
